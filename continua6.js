@@ -10,7 +10,7 @@ let validar = false ;
 
 do {
 let elegir = Number(prompt("Selecciona que quieres hacer ,\n  (1) •	Mostrar el primer contacto (primero), \n "+
-        " (2) •	Mostrar el último contacto (último), \n (3) •	Mostrar todos los contactos (todos)    \n (4) •	Añadir un nuevo contacto (nuevo) , "+
+        " (2) •	Mostrar el último contacto (último), \n (3) •	Mostrar todos los contactos (todos , o seleccion)    \n (4) •	Añadir un nuevo contacto (nuevo) , "+
         "\n (5) Salir")) ; 
   
 
@@ -24,12 +24,9 @@ switch(elegir) {
          window.alert(listaContactos[listaContactos.length-1].nombre);
       break;
     case 3:
-        var i = 0 ; 
-        for (const iterator of listaContactos) {
-               console.log(iterator)
-             i = i + 1 ; 
-        }
-        
+        let longitud = listaContactos.length-1 ; 
+        let indice = Number(prompt("¿ Que numero de elementos quieres mostrar con un máximo de "+longitud+"?"));
+        showContact(listaContactos , indice);
     break;
     case 4:
         let nombreIntroducido = prompt("Introduce el nombre") ; 
@@ -56,6 +53,27 @@ switch(elegir) {
     break;
   }
 }while(validar!= true);
+
+
+
+function showContact(listaContactos , indice)
+{
+       /* let i = 0 ; 
+        for (const iterator of listaContactos) {
+               console.log(iterator)
+               alert(iterator);
+             i = i + 1 ; 
+        }
+        */
+
+        for(let i = 0 ; i < listaContactos.length ; i++)
+        {
+            if(i < indice-1)
+            {
+                console.log(listaContactos[i]);
+            }
+        }
+}
 
 
 
